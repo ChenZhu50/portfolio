@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Chen Zhu — software engineer working across AI robotics, full-stack applications, and search-visible web experiences.">
+  <title>Chen Zhu · Software Engineer</title>
+  <style>
+    :root { --ink:#15263a; --muted:#52657b; --paper:#f7f5f0; --white:#fffdfa; --line:#d8dedc; --teal:#0c756f; --orange:#dc754d; --shadow:0 20px 60px rgba(20,38,58,.09); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    .wrap { width:min(1140px,calc(100% - 48px)); margin:auto; }
+    .topbar { position:sticky; top:0; z-index:20; background:rgba(247,245,240,.94); backdrop-filter:blur(18px); border-bottom:1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:18px; }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:-.02em; white-space:nowrap; }
+    .brand-mark { display:grid; place-items:center; width:32px; height:32px; background:var(--ink); color:#fff; border-radius:7px; font-size:13px; letter-spacing:.02em; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:var(--muted); font-size:14px; font-weight:650; }
+    .nav-links a:hover,.text-link:hover { color:var(--teal); }
+    .lang { display:flex; align-items:center; padding:3px; border:1px solid var(--line); border-radius:999px; background:#fff; }
+    .lang button { border:0; padding:5px 11px; border-radius:999px; color:var(--muted); background:transparent; cursor:pointer; font-size:12px; font-weight:800; }
+    .lang button[aria-pressed="true"] { color:#fff; background:var(--ink); }
+    .hero { display:grid; grid-template-columns:1.35fr .65fr; align-items:end; gap:60px; padding:93px 0 90px; }
+    .eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 22px; color:var(--teal); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:27px; height:2px; background:var(--teal); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:780px; margin-bottom:22px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(56px,8vw,100px); letter-spacing:-.075em; line-height:1.03; font-weight:600; }
+    h1 span { color:var(--teal); }
+    .lede { max-width:710px; margin:0; color:#394d62; font-size:clamp(18px,2.05vw,22px); line-height:1.65; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:46px; padding:0 18px; border:1px solid var(--ink); border-radius:6px; font-size:14px; font-weight:750; transition:transform .2s,background .2s,color .2s; }
+    .button:hover { transform:translateY(-2px); }
+    .button.primary { background:var(--ink); color:#fff; }
+    .button.secondary:hover { background:#fff; }
+    .hero-aside { border-left:1px solid var(--line); padding-left:28px; padding-bottom:5px; }
+    .aside-label { color:var(--muted); font-size:11px; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+    .hero-aside p { margin:8px 0 25px; font-size:15px; line-height:1.55; }
+    .hero-aside p:last-child { margin-bottom:0; }
+    .stripe { height:7px; background:repeating-linear-gradient(90deg,var(--ink) 0 92px,var(--teal) 92px 142px,var(--orange) 142px 154px,var(--paper) 154px 161px); }
+    section.block { padding:76px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:27px; }
+    .kicker { margin:0 0 8px; color:var(--teal); font-size:12px; font-weight:850; letter-spacing:.16em; text-transform:uppercase; }
+    h2 { margin:0; font-family:Georgia,"Times New Roman",serif; font-size:clamp(32px,4vw,48px); line-height:1.15; letter-spacing:-.045em; font-weight:600; }
+    .section-note { max-width:410px; margin:0 0 5px; color:var(--muted); font-size:14px; }
+    .feature { display:grid; grid-template-columns:1fr 1.08fr; min-height:385px; border:1px solid var(--line); border-radius:13px; background:var(--white); box-shadow:var(--shadow); overflow:hidden; }
+    .feature-copy { display:flex; flex-direction:column; padding:40px; }
+    .meta { color:var(--teal); font-size:12px; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+    h3 { margin:13px 0 15px; font-size:27px; line-height:1.2; letter-spacing:-.03em; }
+    .feature-copy p,.project p { color:var(--muted); }
+    .feature-copy p { margin-bottom:22px; }
+    .metrics { display:flex; gap:28px; margin-top:auto; padding-top:18px; border-top:1px solid var(--line); }
+    .metric strong { display:block; color:var(--ink); font:600 35px/1 Georgia,serif; letter-spacing:-.06em; }
+    .metric span { display:block; margin-top:6px; color:var(--muted); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    .feature-visual { position:relative; display:grid; place-items:center; padding:34px; background:#dce8e3; overflow:hidden; }
+    .feature-visual::before,.feature-visual::after { content:""; position:absolute; width:520px; height:520px; border:1px solid rgba(12,117,111,.17); border-radius:50%; }
+    .feature-visual::after { width:330px; height:330px; }
+    .search-card { position:relative; z-index:1; width:min(100%,410px); padding:19px 20px; border:1px solid #d7e3de; border-radius:12px; background:rgba(255,253,250,.96); box-shadow:0 20px 45px rgba(10,55,58,.12); transform:rotate(-3deg); }
+    .search-card + .search-card { position:absolute; width:70%; right:9%; bottom:18%; transform:rotate(4deg); }
+    .search-small { color:#69817f; font-size:12px; }
+    .search-title { display:block; margin:8px 0 5px; color:#176d79; font-size:18px; font-weight:750; line-height:1.25; }
+    .search-line { height:7px; margin-top:8px; border-radius:10px; background:#dbe5e1; }
+    .search-line.short { width:70%; }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .project { display:flex; flex-direction:column; min-height:330px; padding:26px; border:1px solid var(--line); border-radius:11px; background:var(--white); transition:transform .2s,box-shadow .2s; }
+    .project:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .project .number { color:var(--orange); font:600 27px/1 Georgia,serif; }
+    .project h3 { margin:30px 0 12px; font-size:22px; }
+    .project p { margin:0 0 22px; font-size:14px; }
+    .project .links { display:flex; flex-wrap:wrap; gap:16px; margin-top:auto; }
+    .text-link { color:var(--teal); font-size:13px; font-weight:800; }
+    a.text-link::after { content:" ↗"; }
+    .experience { background:#edf0ec; border-block:1px solid var(--line); }
+    .timeline { border-top:1px solid #cbd5d1; }
+    .row { display:grid; grid-template-columns:170px 1fr 1.4fr; gap:26px; padding:24px 0; border-bottom:1px solid #cbd5d1; align-items:start; }
+    .row .date { color:var(--teal); font-size:13px; font-weight:800; }
+    .row .place { font-size:17px; font-weight:800; line-height:1.3; }
+    .row .detail { color:var(--muted); font-size:14px; }
+    .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .edu { padding:29px; border-top:3px solid var(--teal); background:var(--white); border-inline:1px solid var(--line); border-bottom:1px solid var(--line); border-radius:0 0 9px 9px; }
+    .edu .period { color:var(--teal); font-size:12px; font-weight:800; letter-spacing:.1em; }
+    .edu h3 { margin:13px 0 6px; font-size:20px; }
+    .edu p { margin:0; color:var(--muted); font-size:14px; }
+    .footer { padding:48px 0 60px; background:var(--ink); color:#fff; }
+    .footer-grid { display:flex; align-items:end; justify-content:space-between; gap:25px; }
+    .footer h2 { margin:0 0 15px; font-size:clamp(32px,4vw,47px); }
+    .footer p { max-width:520px; margin:0; color:#c4d1da; font-size:14px; }
+    .footer .actions { margin:0; }
+    .footer .button { border-color:#9eb7bc; color:#fff; }
+    .footer .button.primary { border-color:#fff; background:#fff; color:var(--ink); }
+    .footnote { display:flex; justify-content:space-between; gap:15px; margin-top:55px; padding-top:17px; border-top:1px solid #3c5165; color:#b5c5cd; font-size:12px; }
+    [data-i18n] { transition:opacity .16s; }
+    :focus-visible { outline:3px solid var(--orange); outline-offset:3px; }
+    @media(max-width:900px){ .nav-links{display:none}.hero{grid-template-columns:1fr;gap:35px;padding:70px 0}.hero-aside{display:flex;gap:30px}.hero-aside>div{flex:1}.feature{grid-template-columns:1fr}.feature-visual{min-height:290px}.projects{grid-template-columns:1fr 1fr}.row{grid-template-columns:130px 1fr}.row .detail{grid-column:2}.footer-grid{align-items:start;flex-direction:column} }
+    @media(max-width:620px){ .wrap{width:min(100% - 32px,1140px)}.nav{min-height:62px}.brand{font-size:14px}.hero{padding:60px 0 65px}.hero-aside{display:block}.hero-aside p{margin-bottom:14px}section.block{padding:60px 0}.section-head{display:block}.section-note{margin-top:13px}.feature-copy{padding:25px}.feature-visual{min-height:240px}.search-card{width:85%}.search-card + .search-card{width:65%}.projects,.education-grid{grid-template-columns:1fr}.project{min-height:260px}.row{grid-template-columns:1fr;gap:5px}.row .detail{grid-column:1}.footer-grid{display:block}.footer .actions{margin-top:25px}.footnote{display:block}.footnote span{display:block;margin-top:5px} }
+    @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto}*,*::before,*::after{transition:none!important} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Chen Zhu, back to top"><span class="brand-mark">CZ</span><span data-i18n="brand">Chen Zhu / 朱琛</span></a>
+      <div class="nav-links"><a href="#work" data-i18n="navWork">Work</a><a href="#projects" data-i18n="navProjects">Projects</a><a href="#education" data-i18n="navEducation">Education</a><a href="#contact" data-i18n="navContact">Contact</a></div>
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+    </nav>
+  </header>
+  <main id="top">
+    <div class="wrap hero">
+      <div><p class="eyebrow" data-i18n="eyebrow">Software engineer · Class of 2027</p><h1 data-i18n="heroTitle">Building things that <span>work</span> in the real world.</h1><p class="lede" data-i18n="heroText">I am Chen Zhu, a CS master's student at USC. My work spans AI-guided robotics, full-stack products, and making a brand discoverable through search.</p><div class="actions"><a class="button primary" href="#work" data-i18n="explore">Explore my work ↘</a><a class="button secondary" href="https://github.com/ChenZhu50" target="_blank" rel="noopener noreferrer" data-i18n="github">GitHub ↗</a></div></div>
+      <aside class="hero-aside"><div><span class="aside-label" data-i18n="currently">Currently</span><p data-i18n="currentValue">MS in Computer Science<br>University of Southern California</p></div><div><span class="aside-label" data-i18n="focus">Focus</span><p data-i18n="focusValue">Backend · Full-stack · AI applications<br>Open to roles in China</p></div></aside>
+    </div>
+    <div class="stripe" aria-hidden="true"></div>
+    <section class="block wrap" id="work"><div class="section-head"><div><p class="kicker" data-i18n="selectedWork">Selected work / 01</p><h2 data-i18n="workTitle">A useful result beats a long tool list.</h2></div><p class="section-note" data-i18n="workNote">These are the outcomes I would discuss in an interview.</p></div>
+      <article class="feature"><div class="feature-copy"><span class="meta" data-i18n="geoMeta">This Good Comedy · GEO / web</span><h3 data-i18n="geoTitle">From invisible to discoverable.</h3><p data-i18n="geoDesc">I built and maintain the bilingual Astro website, then made the organization legible to both search and AI engines through structured data, pre-rendered answers, canonical URLs, and hreflang. Event listings sync automatically from Eventbrite.</p><a class="text-link" href="https://www.thisgoodcomedy.com/en/" target="_blank" rel="noopener noreferrer" data-i18n="visitSite">Visit live site</a><div class="metrics"><div class="metric"><strong>#2</strong><span data-i18n="metricRank">Google organic, 3 weeks</span></div><div class="metric"><strong>584</strong><span data-i18n="metricClicks">Organic clicks, 28 days</span></div></div></div><div class="feature-visual" aria-hidden="true"><div class="search-card"><span class="search-small">Google Search · LA Chinese comedy</span><span class="search-title">This Good Comedy · Live shows in Los Angeles</span><div class="search-line"></div><div class="search-line short"></div></div><div class="search-card"><span class="search-small">Structured data</span><span class="search-title">Organization · FAQPage · hreflang</span><div class="search-line short"></div></div></div></article>
+    </section>
+    <section class="block wrap" id="projects"><div class="section-head"><div><p class="kicker" data-i18n="moreWork">Engineering / 02</p><h2 data-i18n="projectsTitle">Systems, interfaces, and the details between.</h2></div></div><div class="projects">
+      <article class="project"><span class="number">01 /</span><h3 data-i18n="robotTitle">AI-guided robot testing</h3><p data-i18n="robotDesc">At Google, I worked on a system where Gemini uses screenshots and depth information to guide a six-axis robotic arm through Android tests on physical devices. I handled Python instruction processing, dynamic multi-phone scheduling, and arm control.</p><div class="links"><span class="text-link" data-i18n="internalCode">Internal work · code unavailable</span></div></article>
+      <article class="project"><span class="number">02 /</span><h3 data-i18n="financeTitle">Lifetime Financial Planner</h3><p data-i18n="financeDesc">A full-stack planner built with React, Express, and MongoDB. Moving Monte Carlo simulations into a worker pool cut a 2,000-run batch from 32 seconds to 9 seconds.</p><div class="links"><a class="text-link" href="https://github.com/kalvinliang965/ABCD-LFP" target="_blank" rel="noopener noreferrer" data-i18n="source">Source code</a></div></article>
+      <article class="project"><span class="number">03 /</span><h3 data-i18n="bertTitle">BERT Attention Visualizer</h3><p data-i18n="bertDesc">An interactive tool for comparing attention across BERT variants and exploring masked-word predictions. Adopted in a linguistics course with more than 300 students.</p><div class="links"><a class="text-link" href="https://bert-attention-visualizer.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="liveDemo">Live demo</a><a class="text-link" href="https://github.com/Team-Lasso/bert-attention-visualizer" target="_blank" rel="noopener noreferrer" data-i18n="source">Source code</a></div></article>
+    </div></section>
+    <section class="block experience" id="experience"><div class="wrap"><div class="section-head"><div><p class="kicker" data-i18n="experienceKicker">Experience / 03</p><h2 data-i18n="experienceTitle">Where I have worked.</h2></div></div><div class="timeline"><div class="row"><div class="date">2026.06 — 2026.08</div><div class="place">Google</div><div class="detail" data-i18n="googleRole">Software Engineering Intern, AI & Robotics · Shanghai</div></div><div class="row"><div class="date">2026.03 — <span data-i18n="present">Present</span></div><div class="place">This Good Comedy</div><div class="detail" data-i18n="tgcRole">Technical Lead, Web Platform & GEO · Los Angeles</div></div><div class="row"><div class="date">2026.01 — <span data-i18n="present">Present</span></div><div class="place">USC CGSA</div><div class="detail" data-i18n="cgsaRole">Co-Technical Lead · six-person team, ~1,000 monthly active users</div></div><div class="row"><div class="date">2024.06 — 2024.07</div><div class="place">Apexus Tech</div><div class="detail" data-i18n="apexusRole">Data Analysis Intern · LSTM-based research on 100+ equities</div></div></div></div></section>
+    <section class="block wrap" id="education"><div class="section-head"><div><p class="kicker" data-i18n="educationKicker">Education / 04</p><h2 data-i18n="educationTitle">The foundations.</h2></div></div><div class="education-grid"><article class="edu"><div class="period">2025 — 2027</div><h3 data-i18n="usc">University of Southern California</h3><p data-i18n="uscDegree">M.S. in Computer Science · Expected May 2027</p></article><article class="edu"><div class="period">2020 — 2025</div><h3 data-i18n="sbu">Stony Brook University</h3><p data-i18n="sbuDegree">B.S. in Computer Science · GPA 3.54/4.00</p></article></div></section>
+  </main>
+  <footer class="footer" id="contact"><div class="wrap"><div class="footer-grid"><div><p class="kicker" data-i18n="contactKicker">Contact / 05</p><h2 data-i18n="contactTitle">Let's build something useful.</h2><p data-i18n="contactDesc">Open to software engineering roles in Shanghai, Shenzhen, Beijing, Hangzhou, and Guangzhou.</p></div><div class="actions"><a class="button primary" href="mailto:Czhu1175@gmail.com" data-i18n="emailMe">Email me ↗</a><a class="button" href="https://www.linkedin.com/in/chenzhu50" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div><div class="footnote"><span>© <span id="year"></span> Chen Zhu</span><span data-i18n="footnote">Built as a simple, fast site. No trackers.</span></div></div></footer>
+  <script>
+    const copy = {
+      en:{brand:'Chen Zhu / 朱琛',navWork:'Work',navProjects:'Projects',navEducation:'Education',navContact:'Contact',eyebrow:'Software engineer · Class of 2027',heroTitle:'Building things that <span>work</span> in the real world.',heroText:"I am Chen Zhu, a CS master's student at USC. My work spans AI-guided robotics, full-stack products, and making a brand discoverable through search.",explore:'Explore my work ↘',github:'GitHub ↗',currently:'Currently',currentValue:'MS in Computer Science<br>University of Southern California',focus:'Focus',focusValue:'Backend · Full-stack · AI applications<br>Open to roles in China',selectedWork:'Selected work / 01',workTitle:'A useful result beats a long tool list.',workNote:'These are the outcomes I would discuss in an interview.',geoMeta:'This Good Comedy · GEO / web',geoTitle:'From invisible to discoverable.',geoDesc:'I built and maintain the bilingual Astro website, then made the organization legible to both search and AI engines through structured data, pre-rendered answers, canonical URLs, and hreflang. Event listings sync automatically from Eventbrite.',visitSite:'Visit live site',metricRank:'Google organic, 3 weeks',metricClicks:'Organic clicks, 28 days',moreWork:'Engineering / 02',projectsTitle:'Systems, interfaces, and the details between.',robotTitle:'AI-guided robot testing',robotDesc:'At Google, I worked on a system where Gemini uses screenshots and depth information to guide a six-axis robotic arm through Android tests on physical devices. I handled Python instruction processing, dynamic multi-phone scheduling, and arm control.',internalCode:'Internal work · code unavailable',financeTitle:'Lifetime Financial Planner',financeDesc:'A full-stack planner built with React, Express, and MongoDB. Moving Monte Carlo simulations into a worker pool cut a 2,000-run batch from 32 seconds to 9 seconds.',source:'Source code',bertTitle:'BERT Attention Visualizer',bertDesc:'An interactive tool for comparing attention across BERT variants and exploring masked-word predictions. Adopted in a linguistics course with more than 300 students.',liveDemo:'Live demo',experienceKicker:'Experience / 03',experienceTitle:'Where I have worked.',present:'Present',googleRole:'Software Engineering Intern, AI & Robotics · Shanghai',tgcRole:'Technical Lead, Web Platform & GEO · Los Angeles',cgsaRole:'Co-Technical Lead · six-person team, ~1,000 monthly active users',apexusRole:'Data Analysis Intern · LSTM-based research on 100+ equities',educationKicker:'Education / 04',educationTitle:'The foundations.',usc:'University of Southern California',uscDegree:'M.S. in Computer Science · Expected May 2027',sbu:'Stony Brook University',sbuDegree:'B.S. in Computer Science · GPA 3.54/4.00',contactKicker:'Contact / 05',contactTitle:"Let's build something useful.",contactDesc:'Open to software engineering roles in Shanghai, Shenzhen, Beijing, Hangzhou, and Guangzhou.',emailMe:'Email me ↗',footnote:'Built as a simple, fast site. No trackers.'},
+      zh:{brand:'朱琛 / Chen Zhu',navWork:'代表成果',navProjects:'项目',navEducation:'教育背景',navContact:'联系我',eyebrow:'软件工程师 · 2027 届',heroTitle:'把想法做成<span>真正可用</span>的系统。',heroText:'我是朱琛，南加州大学计算机科学硕士在读。我做过 AI 驱动的机器人测试、全栈产品，以及让品牌被搜索引擎发现的网站。',explore:'查看我的工作 ↘',github:'GitHub ↗',currently:'目前',currentValue:'计算机科学硕士<br>南加州大学',focus:'方向',focusValue:'后端 · 全栈 · AI 应用<br>意向中国大陆岗位',selectedWork:'代表成果 / 01',workTitle:'比技术清单更重要的，是结果。',workNote:'这些是我最希望在面试中详细讨论的工作。',geoMeta:'这个好喜剧 · GEO / 网站',geoTitle:'从搜不到，到被看见。',geoDesc:'我独立建设并维护双语 Astro 网站，通过结构化数据、预渲染问答、canonical 和 hreflang，让搜索和 AI 引擎理解品牌信息。Eventbrite 活动发布后会自动同步到网站。',visitSite:'访问线上网站',metricRank:'3 周进入 Google 自然搜索第 2 位',metricClicks:'28 天自然搜索点击',moreWork:'工程项目 / 02',projectsTitle:'系统、界面，以及连接它们的细节。',robotTitle:'AI 引导的机器人测试',robotDesc:'在 Google 参与 Android 真机自动化测试系统：Gemini 根据截图和深度信息引导六自由度机械臂执行测试。我负责 Python 指令处理、多手机动态调度和机械臂控制。',internalCode:'内部项目 · 源码不公开',financeTitle:'Lifetime Financial Planner',financeDesc:'基于 React、Express 和 MongoDB 的财务规划平台。将蒙特卡洛模拟迁入 worker pool，使 2,000 次模拟由 32 秒缩短到 9 秒。',source:'查看源码',bertTitle:'BERT 注意力可视化',bertDesc:'支持多种 BERT 模型的注意力对比和遮蔽词预测，已用于 300 多名学生的语言学课程。',liveDemo:'在线演示',experienceKicker:'工作经历 / 03',experienceTitle:'我做过的工作。',present:'至今',googleRole:'软件工程实习生，AI 与机器人 · 上海',tgcRole:'技术负责人，Web 平台与 GEO · 洛杉矶',cgsaRole:'联合技术负责人 · 6 人团队，约 1,000 名月活用户',apexusRole:'数据分析实习生 · 基于 100 多只股票的 LSTM 研究',educationKicker:'教育背景 / 04',educationTitle:'教育经历。',usc:'南加州大学',uscDegree:'计算机科学硕士 · 预计 2027 年 5 月毕业',sbu:'纽约州立大学石溪分校',sbuDegree:'计算机科学学士 · GPA 3.54/4.00',contactKicker:'联系 / 05',contactTitle:'一起做点有用的东西。',contactDesc:'开放上海、深圳、北京、杭州和广州的软件开发岗位。',emailMe:'邮件联系 ↗',footnote:'轻量网站，无追踪脚本。'}
+    };
+    function setLanguage(lang){ const selected=copy[lang] ? lang : 'en'; document.documentElement.lang=selected==='zh'?'zh-CN':'en'; document.title=selected==='zh'?'朱琛 · 软件工程师':'Chen Zhu · Software Engineer'; document.querySelectorAll('[data-i18n]').forEach(el=>{ const value=copy[selected][el.dataset.i18n]; if(value!==undefined) el.innerHTML=value; }); document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===selected))); try{localStorage.setItem('portfolio-language',selected)}catch{} }
+    document.querySelectorAll('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
+    document.querySelector('#year').textContent=new Date().getFullYear();
+    let saved='en';try{saved=localStorage.getItem('portfolio-language')||'en'}catch{}setLanguage(saved);
+  </script>
+</body>
+</html>
